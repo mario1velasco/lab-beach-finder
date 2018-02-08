@@ -3,8 +3,21 @@
     <h1>Beach finder</h1>
     <form class="navbar-form navbar-left" role="search" action="#" method="post">
       <div class="form-group">
-        <label for="input-beach">Beach:</label>
-        <input type="text" id="input-beach" class="form-control" placeholder="Search beaches">
+        <label for="pac-input">Beach:</label>
+        <input type="text" id="pac-input" class="form-control" placeholder="Search beaches">
+      </div>
+      <div id="type-selector" class="controls">
+        <input type="radio" name="type" id="changetype-all" checked="checked">
+        <label for="changetype-all">All</label>
+
+        <input type="radio" name="type" id="changetype-establishment">
+        <label for="changetype-establishment">Establishments</label>
+
+        <input type="radio" name="type" id="changetype-address">
+        <label for="changetype-address">Addresses</label>
+
+        <input type="radio" name="type" id="changetype-geocode">
+        <label for="changetype-geocode">Geocodes</label>
       </div>
       <button type="submit" class="btn btn-default">Search</button>
     </form>
@@ -15,5 +28,5 @@
 </header>
 
 <section>
-    <div id="map"></div>
+  <div id="map"></div>
 </section>

@@ -3,7 +3,8 @@ const mapsAPI = new APIMaps();
 // const handlerAPI = new APIHandler("http://localhost:3000");
 
 function startMap() {
-  mapsAPI.startMap();
+  // mapsAPI.startMap();
+  mapsAPI.initMap();
 }
 
 $(document).ready(() => {
