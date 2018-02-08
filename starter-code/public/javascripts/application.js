@@ -1,4 +1,3 @@
-
 const mapsAPI = new APIMaps();
 // const handlerAPI = new APIHandler("http://localhost:3000");
 
@@ -8,30 +7,48 @@ function startMap() {
 }
 
 $(document).ready(() => {
+  $('#btn-search').on('click', (event) => {
+    console.log(event);
+    var input = /** @type {!HTMLInputElement} */ (
+      document.getElementById('pac-input'));
+
+
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    console.log(autocomplete);
+    console.log(map);
+    
+    autocomplete.bindTo('bounds', map);
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker = new google.maps.Marker({
+      map: map,
+      anchorPoint: new google.maps.Point(0, -29)
+    });
+  });
 
 
 
-//   $('#form-new-bookstore').on('submit', (event) => {
-//     event.preventDefault();
-//     let $inputs = $('#form-new-bookstore :input');
-//     let values = {};
-//     $inputs.each(function () {
-//       values[this.name] = $(this).val();
-//     });
-//     handlerAPI.createOneRegister(values);
-//   });
+  //   $('#form-new-bookstore').on('submit', (event) => {
+  //     event.preventDefault();
+  //     let $inputs = $('#form-new-bookstore :input');
+  //     let values = {};
+  //     $inputs.each(function () {
+  //       values[this.name] = $(this).val();
+  //     });
+  //     handlerAPI.createOneRegister(values);
+  //   });
 
-//   $('#tbody-store').on('click', '.show-bookstore', (event)=> {
-//     let td = event.target.parentElement;
-//     let lat = td.getAttribute("lat");
-//     let lng = td.getAttribute("lng");
-//     mapsAPI.myMarker(parseFloat(lat),parseFloat(lng));   
-// });
-//   $('#tbody-store').on('click', '.delete-bookstore', (event)=> {
-//     let td = event.target.parentElement;
-//     td = td.parentElement;
-//     handlerAPI.deleteOneRegister(td.className);
-// });
+  //   $('#tbody-store').on('click', '.show-bookstore', (event)=> {
+  //     let td = event.target.parentElement;
+  //     let lat = td.getAttribute("lat");
+  //     let lng = td.getAttribute("lng");
+  //     mapsAPI.myMarker(parseFloat(lat),parseFloat(lng));   
+  // });
+  //   $('#tbody-store').on('click', '.delete-bookstore', (event)=> {
+  //     let td = event.target.parentElement;
+  //     td = td.parentElement;
+  //     handlerAPI.deleteOneRegister(td.className);
+  // });
 });
 
 

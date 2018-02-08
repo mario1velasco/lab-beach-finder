@@ -19,17 +19,22 @@ class APIMaps {
   }
   initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -33.8688, lng: 151.2195},
+      center: {
+        lat: -33.8688,
+        lng: 151.2195
+      },
       zoom: 13
     });
     // var input = $('#pac-input')[0];
 
-    var input = /** @type {!HTMLInputElement} */(
-        document.getElementById('pac-input'));
+    var input = /** @type {!HTMLInputElement} */ (
+      document.getElementById('pac-input'));
 
     // var types = document.getElementById('type-selector');
     // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+   
 
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
@@ -40,7 +45,7 @@ class APIMaps {
       anchorPoint: new google.maps.Point(0, -29)
     });
 
-    autocomplete.addListener('place_changed', function() {
+    autocomplete.addListener('place_changed', function () {
       infowindow.close();
       marker.setVisible(false);
       var place = autocomplete.getPlace();
@@ -56,9 +61,9 @@ class APIMaps {
         map.fitBounds(place.geometry.viewport);
       } else {
         map.setCenter(place.geometry.location);
-        map.setZoom(17);  // Why 17? Because it looks good.
+        map.setZoom(17); // Why 17? Because it looks good.
       }
-      marker.setIcon(/** @type {google.maps.Icon} */({
+      marker.setIcon( /** @type {google.maps.Icon} */ ({
         url: place.icon,
         size: new google.maps.Size(71, 71),
         origin: new google.maps.Point(0, 0),
@@ -85,7 +90,7 @@ class APIMaps {
     // Autocomplete.
     function setupClickListener(id, types) {
       var radioButton = document.getElementById(id);
-      radioButton.addEventListener('click', function() {
+      radioButton.addEventListener('click', function () {
         autocomplete.setTypes(types);
       });
     }
